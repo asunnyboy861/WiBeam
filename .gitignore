@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+*.xcuserstate
+*.xcuserdatad
+xcuserdata/
+DerivedData/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# CocoaPods
+Pods/
+
+# Configuration
+.env
+Config.xcconfig
+
+# Confidential docs (ASO strategy, competitor analysis, source guide)
+keytext*.md
+COMPETITOR_REPORT.md
+TR-*.MD
+TR-*.md
