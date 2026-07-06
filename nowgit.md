@@ -11,16 +11,16 @@
 | **Primary Language** | Swift |
 | **Latest Commit** | ccf5634f — Initial commit: WiBeam iOS app |
 | **Total Files Committed** | 45 |
-| **GitHub Pages** | ⏳ Pending (will be enabled in PHASE 7) |
+| **GitHub Pages** | ✅ ENABLED (deploys from `/docs` folder) |
 
 ## Policy Pages (Deployed from Main Repository /docs)
 
 | Page | URL | Status |
 |------|-----|--------|
-| Landing Page | https://asunnyboy861.github.io/WiBeam/ | ⏳ Pending |
-| Support | https://asunnyboy861.github.io/WiBeam/support.html | ⏳ Pending |
-| Privacy Policy | https://asunnyboy861.github.io/WiBeam/privacy.html | ⏳ Pending |
-| Terms of Use | https://asunnyboy861.github.io/WiBeam/terms.html | ⏳ Pending (required for subscription) |
+| Landing Page | https://asunnyboy861.github.io/WiBeam/ | ✅ Active |
+| Support | https://asunnyboy861.github.io/WiBeam/support.html | ✅ Active |
+| Privacy Policy | https://asunnyboy861.github.io/WiBeam/privacy.html | ✅ Active |
+| Terms of Use | https://asunnyboy861.github.io/WiBeam/terms.html | ✅ Active (required for subscription) |
 
 ## Repository Structure
 
@@ -67,12 +67,12 @@ WiBeam/                              # GitHub repository root
 │   ├── WiBeamWidget_Info.plist      # Widget Info.plist (external)
 │   ├── WiBeamTests/                 # Unit tests
 │   └── WiBeamUITests/               # UI tests
-├── docs/                            # ⏳ Policy pages (will be added in PHASE 7)
+├── docs/                            # ✅ Policy pages deployed via GitHub Pages
 │   ├── index.html
 │   ├── support.html
 │   ├── privacy.html
 │   └── terms.html
-├── .github/workflows/               # ⏳ GitHub Actions (will be added in PHASE 7)
+├── .github/workflows/               # ✅ GitHub Actions workflow for Pages deploy
 │   └── deploy.yml
 ├── us.md                            # English development guide
 ├── capabilities.md                  # iOS capabilities configuration

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WiBeam — Share WiFi in 3 Seconds via QR Code</title>
+<meta name="description" content="WiBeam turns any WiFi network into a scannable QR code. Guests scan, connect, no password typing. Works on iPhone, Android, and Windows.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    color: #1d1d1f;
+    background: #ffffff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, #007AFF 0%, #00C7BE 100%);
+    color: #ffffff;
+    padding: 96px 24px 88px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 22px;
+    font-weight: 400;
+    opacity: 0.95;
+    max-width: 640px;
+    margin: 0 auto 36px;
+  }
+  .app-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+    background: #ffffff;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+  .cta {
+    display: inline-block;
+    background: #ffffff;
+    color: #007AFF;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 36px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  }
+  .cta-coming-soon {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: default;
+  }
+  .section {
+    padding: 96px 24px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .section h2 {
+    font-size: 44px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .section .subtitle {
+    font-size: 20px;
+    color: #6e6e73;
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .feature {
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 20px;
+    background: #f5f5f7;
+  }
+  .feature .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .feature h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .feature p {
+    color: #6e6e73;
+    font-size: 16px;
+  }
+  .pricing {
+    background: #f5f5f7;
+    padding: 96px 24px;
+  }
+  .pricing h2 {
+    text-align: center;
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .pricing .subtitle {
+    text-align: center;
+    color: #6e6e73;
+    font-size: 20px;
+    margin-bottom: 56px;
+  }
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .plan {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 36px 24px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+  .plan.featured {
+    border: 2px solid #007AFF;
+  }
+  .plan .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007AFF;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .plan h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .plan .price {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+  }
+  .plan .period {
+    color: #6e6e73;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .plan ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  .plan li {
+    padding: 8px 0;
+    color: #1d1d1f;
+    font-size: 15px;
+  }
+  .plan li::before {
+    content: "✓ ";
+    color: #34c759;
+    font-weight: 700;
+  }
+  .footer {
+    background: #1d1d1f;
+    color: #f5f5f7;
+    padding: 48px 24px;
+    text-align: center;
+  }
+  .footer a {
+    color: #f5f5f7;
+    margin: 0 16px;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.85;
+  }
+  .footer a:hover { opacity: 1; }
+  .footer .copyright {
+    margin-top: 24px;
+    color: #8e8e93;
+    font-size: 12px;
+  }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 32px; }
+    .section { padding: 64px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="app-icon">📡</div>
+  <h1>WiBeam</h1>
+  <p>Beam me the WiFi. Share any network in 3 seconds via a scannable QR code — no password typing, no platform limits.</p>
+  <a href="https://apps.apple.com/us/app/id[APP_STORE_ID]" class="cta" id="appStoreBtn">
+    <span id="appStoreLabel">Coming Soon to the App Store</span>
+  </a>
+</section>
+
+<section class="section">
+  <h2>Why WiBeam?</h2>
+  <p class="subtitle">The fastest, safest way to share WiFi with guests, customers, and devices.</p>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">⚡</div>
+      <h3>3-Second Sharing</h3>
+      <p>Open the app, tap a network, show the QR. 15× faster than typing a password.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🌐</div>
+      <h3>Cross-Platform</h3>
+      <p>Works on iPhone, Android, and Windows — any phone with a camera can scan and connect.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔒</div>
+      <h3>Biometric Vault</h3>
+      <p>Passwords are stored in iOS Keychain, protected by Face ID or Touch ID. Never logged, never uploaded.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <h2>Simple, Flexible Pricing</h2>
+  <p class="subtitle">Free to start. Upgrade when you need more.</p>
+  <div class="plans">
+    <div class="plan">
+      <h3>Free</h3>
+      <div class="price">$0</div>
+      <div class="period">forever</div>
+      <ul>
+        <li>3 WiFi networks</li>
+        <li>Unlimited QR codes</li>
+        <li>Save to Photos</li>
+        <li>System share sheet</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <h3>Monthly</h3>
+      <div class="price">$1.99</div>
+      <div class="period">/ month · 7-day free trial</div>
+      <ul>
+        <li>Unlimited networks</li>
+        <li>iCloud sync</li>
+        <li>Widget</li>
+        <li>Custom QR colors</li>
+        <li>Biometric lock</li>
+      </ul>
+    </div>
+    <div class="plan featured">
+      <span class="badge">Best Value</span>
+      <h3>Annual</h3>
+      <div class="price">$14.99</div>
+      <div class="period">/ year · save 37%</div>
+      <ul>
+        <li>All Monthly features</li>
+        <li>Save 37% vs monthly</li>
+        <li>Priority support</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <h3>Lifetime</h3>
+      <div class="price">$9.99</div>
+      <div class="period">one-time payment</div>
+      <ul>
+        <li>All Pro features</li>
+        <li>Pay once, use forever</li>
+        <li>No subscription</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="support.html">Support</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Use</a>
+  <p class="copyright">© 2026 WiBeam. All rights reserved.</p>
+</footer>
+
+<script>
+  (function() {
+    var id = '[APP_STORE_ID]';
+    var btn = document.getElementById('appStoreBtn');
+    var label = document.getElementById('appStoreLabel');
+    if (id && id.indexOf('[') === -1 && id.length > 0) {
+      btn.href = 'https://apps.apple.com/us/app/id' + id;
+      label.textContent = 'Download on the App Store';
+    } else {
+      btn.removeAttribute('href');
+      btn.classList.add('cta-coming-soon');
+    }
+  })();
+</script>
+
+</body>
+</html>

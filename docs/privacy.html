@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — WiBeam</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    color: #1d1d1f;
+    background: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .header {
+    background: linear-gradient(135deg, #007AFF 0%, #00C7BE 100%);
+    color: #ffffff;
+    padding: 64px 24px 48px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .header p { opacity: 0.95; }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 32px 0 12px;
+  }
+  p { margin-bottom: 14px; color: #424245; }
+  ul { margin: 0 0 14px 20px; color: #424245; }
+  li { margin-bottom: 6px; }
+  .updated {
+    color: #6e6e73;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  a { color: #007AFF; }
+  .footer {
+    background: #1d1d1f;
+    color: #f5f5f7;
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .footer a { color: #f5f5f7; margin: 0 12px; opacity: 0.85; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Privacy Policy</h1>
+  <p>Your WiFi. Your device. Your business.</p>
+</header>
+
+<div class="container">
+
+  <p class="updated">Last updated: July 6, 2026</p>
+
+  <p>WiBeam ("we", "us", or "our") operates the WiBeam iOS application (the "App"). This Privacy Policy explains how we handle information when you use the App.</p>
+
+  <p>WiBeam was built privacy-first. The App is fully offline — there is no server, no database, no analytics SDK, and no third-party tracking. The only network requests the App makes are to Apple's StoreKit servers (to verify in-app purchases) and Apple's CloudKit (only if you opt in to iCloud Sync).</p>
+
+  <h2>1. Information We Collect</h2>
+  <p><strong>We do not collect any personal information.</strong> Specifically:</p>
+  <ul>
+    <li><strong>WiFi network names (SSIDs) and passwords</strong> are stored locally on your device in CoreData and the iOS Keychain respectively. They never leave your device unless you explicitly share them via a QR code or AirDrop.</li>
+    <li><strong>Account information</strong>: We do not require an account. We do not collect your name, email, phone number, or any identifier.</li>
+    <li><strong>Usage data</strong>: We do not collect analytics, crash logs, or usage statistics. The App contains no analytics SDKs (no Firebase, no Mixpanel, no Amplitude, no Google Analytics).</li>
+    <li><strong>Location data</strong>: We do not access your location.</li>
+    <li><strong>Photos</strong>: WiBeam can save QR code images to your Photos library only when you tap the Save button. We never read or scan your existing photos.</li>
+    <li><strong>Camera</strong>: WiBeam does not access the camera. QR scanning is handled by the iOS Camera app or Control Center scanner — not by WiBeam.</li>
+    <li><strong>Contact or message data</strong>: When you tap Share, iOS shows the system share sheet. WiBeam does not see who you share with or what message you send.</li>
+  </ul>
+
+  <h2>2. How We Use Information</h2>
+  <p>Because we do not collect personal information, we have no information to use, sell, or share. There is no ad network, no data broker, no third-party tracker anywhere in the App.</p>
+
+  <h2>3. In-App Purchases</h2>
+  <p>WiBeam offers in-app purchases (Monthly, Annual subscription, and Lifetime) processed entirely by Apple through your Apple ID. Purchase records, billing, and refund requests are managed by Apple — WiBeam does not see your payment card, billing address, or Apple ID credentials. Apple sends WiBeam only a cryptographic transaction receipt that confirms a purchase was made — no personal data.</p>
+
+  <h2>4. iCloud Sync (Optional, Pro Only)</h2>
+  <p>If you subscribe to Pro and turn on iCloud Sync in Settings, your WiFi network list (SSIDs, security type, notes, colors, expiry dates) syncs across your devices via Apple's CloudKit. Passwords are <strong>not</strong> synced — they remain in each device's local Keychain, and you must re-enter them on each new device.</p>
+  <p>iCloud Sync uses your private CloudKit database, accessible only to you via your Apple ID. WiBeam cannot read your synced data — it goes directly between your devices through Apple's infrastructure.</p>
+
+  <h2>5. Biometric Data</h2>
+  <p>If you enable Biometric Lock (Pro feature), WiBeam asks iOS to authenticate you with Face ID or Touch ID before unlocking the App. WiBeam never receives, stores, or processes your biometric data — Apple's LocalAuthentication framework handles everything on the Secure Enclave.</p>
+
+  <h2>6. Data Storage & Security</h2>
+  <ul>
+    <li><strong>WiFi passwords</strong>: iOS Keychain with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code> (encrypted, never backed up to iCloud unless iCloud Keychain is enabled separately by you in iOS Settings).</li>
+    <li><strong>Other WiFi metadata</strong> (SSID, security, notes): CoreData store on the local device. Optionally synced via CloudKit if iCloud Sync is enabled.</li>
+    <li><strong>App preferences</strong> (theme, last-used WiFi): local UserDefaults, optionally synced via App Groups to the WiBeam widget.</li>
+  </ul>
+
+  <h2>7. Data Retention</h2>
+  <p>Your data lives on your device until you delete it. Delete a WiFi network inside WiBeam and its password is also removed from the Keychain. Uninstall the App to remove all stored data immediately.</p>
+
+  <h2>8. Children's Privacy</h2>
+  <p>WiBeam is a utility App, not directed at children. We do not knowingly collect any data from anyone, including children. Apple's App Store rates WiBeam 4+.</p>
+
+  <h2>9. Your Privacy Rights</h2>
+  <p>Because we do not collect personal data, there is no data to access, export, or delete on our servers. To exercise data rights over information stored on your device, use iOS Settings → General → iPhone Storage → WiBeam → Delete App.</p>
+  <p>If you have enabled iCloud Sync, your synced WiFi metadata lives in your private CloudKit database. Manage or delete it via iOS Settings → Apple ID → iCloud → Manage Storage → WiBeam.</p>
+
+  <h2>10. Third-Party Services</h2>
+  <p>The App uses the following Apple frameworks. Each is governed by Apple's own privacy policy:</p>
+  <ul>
+    <li><strong>StoreKit 2</strong>: For in-app purchase verification.</li>
+    <li><strong>CloudKit</strong>: For optional iCloud sync (Pro only).</li>
+    <li><strong>LocalAuthentication</strong>: For optional Face ID / Touch ID lock.</li>
+    <li><strong>WidgetKit</strong>: For home-screen widgets (Pro only). Widget data is stored locally via App Groups.</li>
+    <li><strong>UIActivityViewController</strong>: For the iOS share sheet when you choose to share a QR code.</li>
+  </ul>
+  <p>The App contains no other third-party SDKs, libraries, trackers, or analytics tools.</p>
+
+  <h2>11. Feedback Messages</h2>
+  <p>If you contact us via Settings → Contact Support in the App, your message (including any name, email, subject, and message you provide) is sent to our feedback service over HTTPS. We use this solely to respond to your inquiry. We do not add you to a marketing list or sell your contact information.</p>
+
+  <h2>12. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we'll revise the "Last updated" date at the top of this page. Material changes will be reflected in a future App update.</p>
+
+  <h2>13. Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy, please contact us:</p>
+  <p>Email: <a href="mailto:iocompile67692@gmail.com">iocompile67692@gmail.com</a></p>
+
+</div>
+
+<footer class="footer">
+  <a href="index.html">Home</a>
+  <a href="support.html">Support</a>
+  <a href="terms.html">Terms of Use</a>
+  <p style="margin-top: 16px; opacity: 0.6;">© 2026 WiBeam. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
