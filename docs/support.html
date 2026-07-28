@@ -54,6 +54,40 @@
   .card p { font-size: 15px; margin-bottom: 0; }
   a { color: #007AFF; text-decoration: none; }
   a:hover { text-decoration: underline; }
+  .legal-box {
+    background: #f5f5f7;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #6e6e73;
+    line-height: 1.7;
+  }
+  .legal-box h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+  }
+  .legal-box ul, .legal-box ol { margin: 0 0 12px 18px; }
+  .legal-box li { margin-bottom: 6px; font-size: 14px; }
+  .subscription-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .subscription-table th, .subscription-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e5ea;
+  }
+  .subscription-table th {
+    font-weight: 600;
+    color: #1d1d1f;
+    background: #f5f5f7;
+  }
+  .subscription-table td { color: #424245; }
   .contact {
     text-align: center;
     margin-top: 48px;
@@ -108,7 +142,7 @@
 
   <div class="card">
     <h3>Where is my WiFi password stored?</h3>
-    <p>Passwords are stored in the iOS Keychain with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code> protection. They never leave your device, never get logged, and (optionally) require Face ID or Touch ID to read. WiBeam has no server — there's nothing to hack.</p>
+    <p>Passwords are stored in the iOS Keychain with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code> protection. They never leave your device, never get logged, and (optionally) require Face ID or Touch ID to read. WiBeam has no server — there's nothing to hack. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
   </div>
 
   <div class="card">
@@ -143,30 +177,81 @@
     <p>Yes — Pro subscribers can enable iCloud Sync in Settings. All networks (excluding passwords, which stay in per-device Keychain) sync automatically. Passwords must be re-entered on each new device for security.</p>
   </div>
 
+  <div class="card">
+    <h3>How do I print a WiFi QR poster?</h3>
+    <p>Open any saved network → tap the <strong>Share</strong> button → choose <strong>Print</strong>. WiBeam generates a print-optimized QR poster with your network name and connection instructions. Pro feature.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do timed access QR codes work?</h3>
+    <p>Pro users can set an expiry date on any QR code. After the expiry, the QR code still displays but guests will not be able to connect — ideal for Airbnb, hotels, or temporary event WiFi. To set it up, edit a network and enable <strong>Timed Access</strong>.</p>
+  </div>
+
   <h2>Troubleshooting</h2>
   <ul>
     <li><strong>QR code won't scan</strong>: Ensure the screen brightness is at least 50%, clean your screen, and hold the receiving phone 6–10 inches away. WiBeam uses error-correction level H, so even partial scans usually work.</li>
     <li><strong>Wrong password on scan</strong>: Check for special characters in your password (<code>\ ; , : "</code>) — WiBeam auto-escapes these per ISO/IEC 18004, but some older Android phones mis-parse them. Try re-typing the password manually.</li>
     <li><strong>Face ID not unlocking WiBeam</strong>: Go to iOS Settings → WiBeam → make sure Face ID is enabled. If prompted, tap <strong>Try Again</strong> and re-enter your device passcode.</li>
     <li><strong>Widget not updating</strong>: Long-press the widget → Edit Widget → confirm the WiFi network is selected. The widget reads from App Group storage; if it's still blank, restart your iPhone.</li>
+    <li><strong>Timed access QR not expiring</strong>: Ensure the date and time on the scanning device are set correctly. QR expiry is encoded in the code — the scanning device reads it based on its local clock.</li>
   </ul>
 
   <h2>Subscriptions & Billing</h2>
-  <p>All WiBeam subscriptions are billed by Apple through your Apple ID payment method. WiBeam cannot see, modify, or refund your subscription directly — all billing is managed by Apple.</p>
-  <ul>
-    <li>Subscription automatically renews unless cancelled at least 24 hours before the end of the current period.</li>
-    <li>Account is charged for renewal within 24 hours of the end of the current period.</li>
-    <li>You can manage or cancel your subscription anytime in iOS Settings → Apple ID → Subscriptions.</li>
-    <li>Refunds are handled by Apple Support: <a href="https://support.apple.com/billing">support.apple.com/billing</a>.</li>
-  </ul>
+
+  <p>WiBeam offers the following in-app purchases through Apple's App Store:</p>
+
+  <table class="subscription-table">
+    <thead>
+      <tr>
+        <th>Plan</th>
+        <th>Price</th>
+        <th>Billing Cycle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>WiBeam Pro Monthly</td>
+        <td>$1.99 USD</td>
+        <td>Per month (7-day free trial for first-time subscribers)</td>
+      </tr>
+      <tr>
+        <td>WiBeam Pro Annual</td>
+        <td>$14.99 USD</td>
+        <td>Per year</td>
+      </tr>
+      <tr>
+        <td>WiBeam Lifetime</td>
+        <td>$9.99 USD</td>
+        <td>One-time purchase</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>All subscriptions are billed by Apple through your Apple ID payment method. WiBeam cannot see, modify, or refund your subscription directly — all billing is managed by Apple.</p>
+
+  <div class="legal-box">
+    <h3>Auto-Renewal & Subscription Terms</h3>
+    <ul>
+      <li>Payment will be charged to your Apple ID account at confirmation of purchase.</li>
+      <li>Subscription automatically renews unless it is cancelled at least 24 hours before the end of the current billing period.</li>
+      <li>Your account will be charged for renewal within 24 hours prior to the end of the current period.</li>
+      <li>The subscription may be managed by the user, and auto-renewal may be turned off by going to the user's Account Settings after purchase: iOS Settings → Apple ID → Subscriptions.</li>
+      <li>Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription, where applicable.</li>
+      <li>During the free trial period, you may cancel at any time without charge. You retain Pro access until the end of the trial period.</li>
+      <li>Lifetime purchase is a one-time, non-consumable transaction. It unlocks all Pro features permanently on the Apple ID used to purchase it.</li>
+      <li>Refunds are handled by Apple Support: <a href="https://support.apple.com/billing">support.apple.com/billing</a>. WiBeam cannot issue refunds directly.</li>
+    </ul>
+    <p>For complete terms, see our <a href="terms.html">Terms of Use</a>. For information on how we handle your data, see our <a href="privacy.html">Privacy Policy</a>.</p>
+  </div>
 
   <h2>Feature Requests & Feedback</h2>
   <p>We love hearing from users. Inside the app, go to Settings → <strong>Contact Support</strong> to send feedback directly. Your message reaches our team — we read every one.</p>
 
   <div class="contact">
     <h2>Need More Help?</h2>
-    <p>Email us anytime — we typically reply within 1 business day.</p>
+    <p>Email us anytime — we typically reply within 24 hours.</p>
     <a href="mailto:iocompile67692@gmail.com">iocompile67692@gmail.com</a>
+    <p style="margin-top: 16px; font-size: 14px; color: #6e6e73;">You can also reach us in the app: Settings → Contact Support</p>
   </div>
 
 </div>
