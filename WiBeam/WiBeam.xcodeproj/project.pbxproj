@@ -488,8 +488,8 @@
 				DEVELOPMENT_TEAM = JP4TN5PTS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "WiBeam uses Face ID to protect your WiFi passwords.";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "WiBeam saves QR codes to your Photos library for sharing.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "WiBeam uses Face ID to securely lock the app and protect your saved WiFi passwords from unauthorized access. When Biometric Lock is enabled in Settings, Face ID is required each time the app opens. No biometric data leaves your device.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "WiBeam saves WiFi QR code images to your Photos so you can share them via AirDrop, Messages, email, or print them. The app only writes QR code images it generates and never reads your existing photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -524,8 +524,8 @@
 				DEVELOPMENT_TEAM = JP4TN5PTS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "WiBeam uses Face ID to protect your WiFi passwords.";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "WiBeam saves QR codes to your Photos library for sharing.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "WiBeam uses Face ID to securely lock the app and protect your saved WiFi passwords from unauthorized access. When Biometric Lock is enabled in Settings, Face ID is required each time the app opens. No biometric data leaves your device.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "WiBeam saves WiFi QR code images to your Photos so you can share them via AirDrop, Messages, email, or print them. The app only writes QR code images it generates and never reads your existing photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

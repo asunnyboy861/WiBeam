@@ -70,7 +70,7 @@ struct PaywallView: View {
                 .font(.system(.largeTitle, design: .rounded).bold())
                 .foregroundColor(.primary)
 
-            Text("Remove limits, sync across devices,\nand access premium features.")
+            Text("Remove limits, access premium features,\nand share WiFi like a pro.")
                 .font(.system(.body, design: .rounded))
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -81,7 +81,6 @@ struct PaywallView: View {
     private var featuresSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             featureRow("Unlimited WiFi networks", icon: "infinity")
-            featureRow("iCloud sync across devices", icon: "icloud.fill")
             featureRow("Home screen widget", icon: "rectangle.on.rectangle")
             featureRow("Custom QR colors & logo", icon: "paintpalette.fill")
             featureRow("Biometric app lock", icon: "faceid")
@@ -230,6 +229,18 @@ struct PaywallView: View {
             }
             .buttonStyle(BouncyButtonStyle())
 
+            VStack(spacing: 6) {
+                Text("Payment will be charged to your Apple ID account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period.")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+
+                Text("You can manage and cancel your subscription in Settings → Apple ID → Subscriptions.")
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+
             HStack(spacing: 16) {
                 Link("Privacy Policy", destination: URL(string: "\(policyBaseURL)/privacy.html")!)
                 Text("·").foregroundColor(.secondary)
@@ -237,11 +248,6 @@ struct PaywallView: View {
             }
             .font(.caption)
             .foregroundColor(.secondary)
-
-            Text("Cancel anytime in Settings → Apple ID → Subscriptions.")
-                .font(.caption2)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
         }
     }
 
