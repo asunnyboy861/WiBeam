@@ -1,0 +1,160 @@
+{
+  "identifier" : "WiBeamProducts",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "lifetime_001",
+      "localizations" : [
+        {
+          "description" : "Pay once, use forever. All Pro features unlocked.",
+          "displayName" : "WiBeam Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.zzoutuo.WiBeam.lifetime",
+      "referenceName" : "WiBeam Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "WiBeam_Premium",
+      "localizations" : [
+        {
+          "description" : "Unlock all WiBeam Pro features",
+          "displayName" : "WiBeam Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "WiBeam Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "14.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "annual_001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "All Pro features. Best value — save 37%!",
+              "displayName" : "WiBeam Pro Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.zzoutuo.WiBeam.pro.annual",
+          "renewalInfo" : [
+            {
+              "autoRenew" : true,
+              "autoRenewPreference" : 2
+            }
+          ],
+          "referenceName" : "WiBeam Pro Annual",
+          "subscriptionGroupID" : "WiBeam_Premium",
+          "type" : "RecurringAutoRenewable"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "1.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_001",
+          "introductoryOffer" : {
+            "internalID" : "monthly_trial_001",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W",
+            "type" : "introductory"
+          },
+          "localizations" : [
+            {
+              "description" : "Unlimited networks, iCloud sync, widget, colors.",
+              "displayName" : "WiBeam Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.zzoutuo.WiBeam.pro.monthly",
+          "renewalInfo" : [
+            {
+              "autoRenew" : true,
+              "autoRenewPreference" : 1
+            }
+          ],
+          "referenceName" : "WiBeam Pro Monthly",
+          "subscriptionGroupID" : "WiBeam_Premium",
+          "subscriptionPeriod" : "P1M",
+          "type" : "RecurringAutoRenewable"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

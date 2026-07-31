@@ -79,6 +79,24 @@ Not applicable. WiBeam does not operate in a regulated industry and does not inc
 ### Login / Account
 WiBeam does **not** require any account, registration, or login. The app is fully functional immediately after download. There is no user-generated content, no social features, and no content reporting/blocking mechanisms because the app is a single-user utility.
 
+### In-App Purchase Testing (Guideline 2.1(b))
+All 3 IAP products have been created and submitted for review in App Store Connect:
+- **WiBeam Pro Monthly** (`com.zzoutuo.WiBeam.pro.monthly`) — Auto-renewable subscription, $1.99/month, 7-day free trial
+- **WiBeam Pro Annual** (`com.zzoutuo.WiBeam.pro.annual`) — Auto-renewable subscription, $14.99/year
+- **WiBeam Lifetime** (`com.zzoutuo.WiBeam.lifetime`) — Non-consumable, $9.99 one-time
+
+The Paid Apps Agreement is in effect. All products are in the "WiBeam Premium" subscription group.
+
+To test IAP in sandbox:
+1. Sign in to the App Store on the test device with a Sandbox Apple ID (Settings → App Store → Sandbox Account)
+2. Open WiBeam → Settings → Upgrade to Pro
+3. The Paywall displays all 3 plans with prices
+4. Tap any plan to initiate a sandbox purchase
+5. Sandbox purchases complete instantly — no real payment is charged
+6. Use "Restore Purchases" to restore previously purchased items
+
+A StoreKit Configuration File (`WiBeamProducts.storekit`) is included in the project for local Xcode testing. The scheme is configured to use it automatically when running from Xcode.
+
 ### Subscription Information (Guideline 3.1.2)
 The Paywall view clearly displays:
 - **Title**: Each plan's display name (WiBeam Pro Monthly, WiBeam Pro Annual, WiBeam Lifetime)

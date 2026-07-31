@@ -34,39 +34,65 @@ final class PurchaseManager: ObservableObject {
 
     func loadProducts() async {
         isLoading = true
+        lastError = nil
         defer { isLoading = false }
 
         do {
             let storeProducts = try await Product.products(for: PurchaseManager.allProductIDs)
             self.products = storeProducts.sorted { $0.price < $1.price }
+
+            if storeProducts.isEmpty {
+                self.lastError = "No products available. Please try again later."
+            }
         } catch {
-            self.lastError = error.localizedDescription
+            self.lastError = "Could not load subscription plans. Please check your internet connection and try again."
         }
     }
 
-    func purchase(_ product: Product) async throws {
-        let result = try await product.purchase()
+    enum PurchaseResult {
+        case success
+        case cancelled
+        case pending
+        case failed(String)
+    }
 
-        switch result {
-        case .success(let verification):
-            let transaction = try checkVerification(verification)
-            await updatePurchasedStatus()
-            await transaction.finish()
-        case .userCancelled:
-            break
-        case .pending:
-            break
-        @unknown default:
-            break
+    func purchase(_ product: Product) async -> PurchaseResult {
+        do {
+            let result = try await product.purchase()
+
+            switch result {
+            case .success(let verification):
+                let transaction = try checkVerification(verification)
+                await updatePurchasedStatus()
+                await transaction.finish()
+                return .success
+
+            case .userCancelled:
+                return .cancelled
+
+            case .pending:
+                return .pending
+
+            @unknown default:
+                return .failed("An unexpected error occurred. Please try again.")
+            }
+        } catch {
+            return .failed(userFriendlyError(error))
         }
     }
 
-    func restorePurchases() async {
+    func restorePurchases() async -> String {
         do {
             try await AppStore.sync()
             await updatePurchasedStatus()
+
+            if isPro {
+                return "Pro features unlocked! Thank you."
+            } else {
+                return "No previous purchases found for this Apple ID."
+            }
         } catch {
-            self.lastError = error.localizedDescription
+            return "Could not restore purchases. Please check your internet connection and try again."
         }
     }
 
@@ -105,5 +131,25 @@ final class PurchaseManager: ObservableObject {
         case .unverified(_, let error):
             throw error
         }
+    }
+
+    private func userFriendlyError(_ error: Error) -> String {
+        if let storeKitError = error as? StoreKitError {
+            switch storeKitError {
+            case .userCancelled:
+                return "Purchase was cancelled."
+            case .networkError:
+                return "Could not connect to the App Store. Please check your internet connection and try again."
+            case .systemError:
+                return "The App Store is temporarily unavailable. Please try again later."
+            case .notAvailableInStorefront:
+                return "This product is not available in your region."
+            case .notEntitled:
+                return "You are not authorized to make this purchase. Please sign in to the App Store."
+            @unknown default:
+                return "An unexpected error occurred. Please try again."
+            }
+        }
+        return "Could not complete purchase. Please try again or contact support."
     }
 }

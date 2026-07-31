@@ -114,9 +114,18 @@ struct PaywallView: View {
                 ProgressView("Loading plans...")
                     .frame(maxWidth: .infinity, minHeight: 200)
             } else if purchaseManager.products.isEmpty {
-                Text("Plans unavailable. Please try again later.")
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity, minHeight: 100)
+                VStack(spacing: 12) {
+                    Text("Plans unavailable. Please try again later.")
+                        .foregroundColor(.secondary)
+                    Button {
+                        Task { await purchaseManager.loadProducts() }
+                    } label: {
+                        Label("Retry", systemImage: "arrow.clockwise")
+                            .font(.system(.body, design: .rounded).bold())
+                    }
+                    .buttonStyle(BouncyButtonStyle())
+                }
+                .frame(maxWidth: .infinity, minHeight: 100)
             } else {
                 ForEach(purchaseManager.products, id: \.id) { product in
                     planCard(product)
@@ -218,8 +227,7 @@ struct PaywallView: View {
         VStack(spacing: 12) {
             Button {
                 Task {
-                    await purchaseManager.restorePurchases()
-                    restoreMessage = purchaseManager.isPro ? "Pro features unlocked!" : "No previous purchases found."
+                    restoreMessage = await purchaseManager.restorePurchases()
                     showRestoreAlert = true
                 }
             } label: {
@@ -255,13 +263,19 @@ struct PaywallView: View {
         isPurchasing = true
         defer { isPurchasing = false }
 
-        do {
-            try await purchaseManager.purchase(product)
+        let result = await purchaseManager.purchase(product)
+
+        switch result {
+        case .success:
             if purchaseManager.isPro {
                 dismiss()
             }
-        } catch {
-            purchaseError = error.localizedDescription
+        case .cancelled:
+            break
+        case .pending:
+            purchaseError = "Your purchase is pending approval. You'll be notified once it's confirmed. Pro features will unlock automatically."
+        case .failed(let message):
+            purchaseError = message
         }
     }
 }
